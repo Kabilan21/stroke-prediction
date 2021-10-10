@@ -1,3 +1,4 @@
 detection/dataset
 detection/model.h5
 detection/*.pickle
+/stroke-prediction-app
