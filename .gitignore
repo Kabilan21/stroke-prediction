@@ -4,3 +4,4 @@ detection/*.pickle
 /stroke-prediction-app
 *.pyc
 webapp/db.sqlite3
+/.ipynb_checkpoints
