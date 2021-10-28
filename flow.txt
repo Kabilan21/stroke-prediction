@@ -1,0 +1,9 @@
+module 1:
+
+1) initializing dataset.
+2) filling the missing values.
+3) feature extraction.
+4) label encoding the categorical features.
+5) standardizing all numerical features.
+6) using support vector machine to fit the dataset and predict inputs.
+7) using decision tree classifier to find the confusion matrix on the importance of each fileds in the dataset.
