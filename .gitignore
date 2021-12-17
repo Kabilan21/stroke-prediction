@@ -1,7 +1,10 @@
 detection/dataset
-detection/model.h5
-detection/*.pickle
+*.h5
+*.pickle
 /stroke-prediction-app
 *.pyc
 webapp/db.sqlite3
 /.ipynb_checkpoints
+*.png
+*.jpg
+*.pickle

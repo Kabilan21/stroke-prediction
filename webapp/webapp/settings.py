@@ -25,7 +25,7 @@ SECRET_KEY = 'sy9k$+lkcy8c$bd@ip)6^tb6d3l_rjdr^m4onc90un12f0qtt#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
 
@@ -119,3 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+ENCODER_PATH = f"{BASE_DIR}/core/models/encoders.pkl"
+CLASSIFIER_PATH = f"{BASE_DIR}/core/models/classifier.pkl"
+SCALER_PATH = f"{BASE_DIR}/core/models/scaler.pkl"
+MODEL_PATH = f"{BASE_DIR}/core/models/model.h5"

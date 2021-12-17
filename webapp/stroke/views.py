@@ -1,26 +1,41 @@
-from django.shortcuts import render
-from django.http import JsonResponse
 from core.test import process
+from rest_framework.views import APIView
+
+from rest_framework.response import Response
+from rest_framework import status
+
+from .forms import PredictionSerializer
+
+from rest_framework.permissions import AllowAny
+
+from PIL import Image
+from core.classify import predict
 
 
-def homeview(request):
+class StrokePredictionView(APIView):
 
-    return render(request, "stroke/index.html")
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serialized = PredictionSerializer(request.data)
+        values = serialized.data
+        prediction = process(
+            values['gender'], values['age'], values['hypertension'],
+            values['heart_disease'], values['ever_married'], values['work_type'],
+            values['residence_type'], values['avg_glucose_level'], values['bmi'], values['smoking_status'])
+        return Response(status=status.HTTP_200_OK, data={
+            'normal': prediction[0],
+            'stroke': prediction[1]
+        })
 
 
-def formview(reqest):
-    if reqest.method == "POST":
-        gender = reqest.POST.data('gender')
-        age = reqest.POST.data('age')
-        hypertension = reqest.POST.data('hypertension')
-        heart_disease = reqest.POST.data('heart_disease')
-        ever_married = reqest.POST.data('ever_married')
-        work_type = reqest.POST.data('work_type')
-        residence_type = reqest.POST.data('residence_type')
-        avg_glucose_level = reqest.POST.data('avg_glucose_level')
-        bmi = reqest.POST.data('bmi')
-        smoking_status = reqest.POST.data('smoking_status')
-        probability = process(gender, age, hypertension, heart_disease, ever_married,
-                              work_type, residence_type, avg_glucose_level, bmi, smoking_status)
+class StrokeDetectionView(APIView):
 
-        return JsonResponse(data={'probablility': probability})
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        image = request.FILES.get("image")
+        result = predict(Image.open(image))
+        return Response(data={
+            "detection": result
+        })
