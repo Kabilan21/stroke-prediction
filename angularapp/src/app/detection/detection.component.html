@@ -1,0 +1,9 @@
+<form #detectionForm="ngForm" (ngSubmit)="onSubmit(detectionForm.value)"  enctype="multipart/form-data">
+    <label for="file">Filename:</label>
+    <input type="file" (change)="onFileSelected($event)" name="image" id="file" ><br>
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+<div *ngIf=" showResult ;">
+{{result['detection']}}
+</div>
