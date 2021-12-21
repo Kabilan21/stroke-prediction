@@ -1,5 +1,8 @@
+from django.http.response import JsonResponse
 from core.test import process
 from rest_framework.views import APIView
+
+from django.shortcuts import render
 
 from rest_framework.response import Response
 from rest_framework import status
@@ -32,6 +35,12 @@ class StrokePredictionView(APIView):
 class StrokeDetectionView(APIView):
 
     permission_classes = [AllowAny]
+
+    def get(self, request):
+        context = {
+            "title": "Stroke detection"
+        }
+        return render(request, template_name="stroke/prediction.html", context=context)
 
     def post(self, request):
         image = request.FILES.get("image")
