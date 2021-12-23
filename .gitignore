@@ -9,6 +9,8 @@ webapp/db.sqlite3
 *.jpg
 *.pickle
 
+detection/logs
+
 ### Angular ###
 ## Angular ##
 # compiled output

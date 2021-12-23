@@ -43,8 +43,11 @@ class StrokeDetectionView(APIView):
         return render(request, template_name="stroke/prediction.html", context=context)
 
     def post(self, request):
+        categories = ["NORMAL", "STROKE"]
         image = request.FILES.get("image")
         result = predict(Image.open(image))
         return Response(data={
-            "detection": result
+            "detection": categories[int(result)],
+            "result": result
+
         })
