@@ -1,9 +1,25 @@
-<form #detectionForm="ngForm" (ngSubmit)="onSubmit(detectionForm.value)"  enctype="multipart/form-data">
-    <label for="file">Filename:</label>
-    <input type="file" (change)="onFileSelected($event)" name="image" id="file" ><br>
-    <input type="submit" name="submit" value="Submit">
-</form>
+    <div class="container">
+        <h1 class="heading">Upload your image</h1>
 
-<div *ngIf=" showResult ;">
-{{result['detection']}}
-</div>
+    </div>
+    <div class="main">
+        <div class="box"></div>
+        <div class="content">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <form #detectionForm="ngForm" (ngSubmit)="onSubmit(detectionForm.value)"  enctype="multipart/form-data">
+                <input class="file" type="file" (change)="onFileSelected($event)" name="image" id="file" ><br>
+                <div class="box"></div>
+                
+            </form>
+            <input class="submit" type="submit" name="submit" value="Submit">
+            
+
+        </div>
+
+    </div>
+    <div class="result" *ngIf=" showResult ;">
+      The given image is   {{result['detection']}} image
+    </div>
+    
+    
+
