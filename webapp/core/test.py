@@ -51,5 +51,5 @@ def process(gender, age, hypertension, heart_disease, ever_married, work_type, r
     x = [[gender, age, hypertension, heart_disease, ever_married, work_type,
           residence_type, avg_glucose_level, bmi, smoking_status]]
     x = process_input(x)
-    y = sv.predict_proba(x)
+    y = sv.predict(x)
     return y[0]
