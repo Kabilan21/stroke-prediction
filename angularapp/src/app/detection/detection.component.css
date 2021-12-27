@@ -16,26 +16,33 @@
     border-radius: 10px;
     background-color: white;
     	width:600px;
-        height: 300px;
+        height: 250px;
         margin:10px;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .file{
-    padding-bottom: 50%;
+    padding-bottom: 20%;
     padding-left: 50%;
-    padding-top: 20%;
+    padding-top: 10%;
   
+}
+.box{
+    height: 30px;
 }
 .submit{
     color: blue;
-    margin-left: 65%;
-    padding-top: 100%;
-		border: 2px solid blue;
-		padding: 5px;
+    margin-left: 35%;
+       
+        display: flex;
         justify-content: center;
-		border-radius: 10px;
+        width: 100%;
 		background-color: white;
+        border-color: blue;
+		padding: 10px;
+        display: flex;
+		border-radius: 10px;
+		
 }
 
 .content{
@@ -43,6 +50,15 @@
     margin: 20px;
     width: 50%;
 }
+i.fa {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    padding-left: 80%;
+    opacity: 10;
+    padding-top: 10%;
+   
+  }
 
     
 

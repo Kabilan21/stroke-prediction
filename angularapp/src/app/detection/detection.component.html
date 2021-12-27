@@ -5,18 +5,21 @@
     <div class="main">
         <div class="box"></div>
         <div class="content">
+            <i class="fa fa-download" aria-hidden="true"></i>
             <form #detectionForm="ngForm" (ngSubmit)="onSubmit(detectionForm.value)"  enctype="multipart/form-data">
                 <input class="file" type="file" (change)="onFileSelected($event)" name="image" id="file" ><br>
+                <div class="box"></div>
                 
-                <input class="submit" type="submit" name="submit" value="Submit">
             </form>
+            <input class="submit" type="submit" name="submit" value="Submit">
             
 
         </div>
 
     </div>
     <div class="result" *ngIf=" showResult ;">
-      The stroke  {{result['detection']}}
+      The given image is   {{result['detection']}} image
     </div>
+    
     
 
